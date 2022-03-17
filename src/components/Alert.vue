@@ -1,10 +1,7 @@
 <template>
     <div class="alerts">
-        <div class="alert alert-success" role="alert">
-                Your contact has been created!
-        </div>
-        <div class="alert alert-danger" role="alert">
-            You have deleted a contact!
+        <div class="alert" v-bind:class=alertMsg.class role="alert">
+                {{alertMsg.message}}
         </div>
     </div>
 </template>
@@ -13,7 +10,7 @@
 export default {
     name : 'AlertForm',
     props : {
-        alertMsg : String,
+        alertMsg : Object
     },
 
     methods : {

@@ -4,7 +4,7 @@
     <h2>Contacts</h2>
 
     <div class="alert">
-      <AlertForm v-bind:alertMsg="alert.message" v-if="alert.show" />
+      <AlertForm v-bind:alertMsg="alert" v-if="alert.show" />
     </div>
     
     <div class="container ">      
@@ -42,7 +42,8 @@ export default {
       contacts : [],
       alert : {
         show : false,
-        message : 'Your contact has been created!'
+        class : '',
+        message : ''
       }
       
     }
@@ -50,12 +51,14 @@ export default {
   methods : {
     addNewContact(formValue){
       this.contacts.push(formValue);
-      this.alert.show = true;
-      this.alert.message = 'message'
+      this.alert = {
+        show:true,
+        class: 'alert-success',
+        message: 'Your contact is now saved !'
+      }
 
        setTimeout(()=>{
-        this.alert.show = false;
-        this.alert.message = '';
+       this.alert.show = false;
       }, 3000)
     },
 
@@ -63,6 +66,15 @@ export default {
       this.contacts = this.contacts.filter((item, key)=>{
         return key != index;
       })
+       this.alert = {
+        show:true,
+        class: 'alert-danger',
+        message: 'Your contact is deleted!'
+      }
+
+       setTimeout(()=>{
+       this.alert.show = false;
+      }, 3000)
     },
   },  
 
