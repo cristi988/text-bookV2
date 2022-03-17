@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <NavBar/>
+    <h2>Contacts</h2>
+
+    <div class="alert">
+      <AlertForm v-bind:alertMsg="alert.message" v-if="alert.show" />
+    </div>
     
-    <div class="container ">
+    <div class="container ">      
       <div class="row">
         <CardTemplate  
         v-for="(contact, index) in contacts" 
@@ -11,40 +16,54 @@
         v-on:deleteContact='deleteContact'
         v-bind:index='index'/>
       </div>      
-    </div>    
-      
-      <FormTemplate v-on:fromForm='addNewContact' />
     </div>
+      
+    <FormTemplate v-on:fromForm='addNewContact' />
+  </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
 import CardTemplate from './components/Card.vue'
 import FormTemplate from './components/Form.vue'
+import AlertForm from './components/Alert.vue'
 // import axios from 'axios'
 export default {
   name: 'App',
   components: {
     CardTemplate,
     NavBar,
-    FormTemplate
+    FormTemplate,
+    AlertForm
   },
   
   data(){
     return {
       contacts : [],
+      alert : {
+        show : false,
+        message : 'Your contact has been created!'
+      }
       
     }
   },
   methods : {
     addNewContact(formValue){
       this.contacts.push(formValue);
+      this.alert.show = true;
+      this.alert.message = 'message'
+
+       setTimeout(()=>{
+        this.alert.show = false;
+        this.alert.message = '';
+      }, 3000)
     },
+
     deleteContact(user, index){
       this.contacts = this.contacts.filter((item, key)=>{
         return key != index;
       })
-    }
+    },
   },  
 
 }

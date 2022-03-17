@@ -42,8 +42,6 @@
 </template>
 
 
-
-
 <script>
 export default {
     name : 'FormTemplate',
@@ -65,6 +63,8 @@ export default {
             this.$emit('fromForm', this.form);
             this.form = {};
         }
+
+
     }
 }
 </script>

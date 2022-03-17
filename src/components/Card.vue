@@ -22,10 +22,6 @@ export default {
         index : Number,
     },
 
-    mounted(){
-        console.log(this.user)
-    },
-
     filters : {
         toString(value){
             return value;
