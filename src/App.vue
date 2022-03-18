@@ -1,25 +1,24 @@
 <template>
   <div id="app">
     <NavBar/>
-    <h2>Contacts</h2>
-
-    <div class="alert">
-      <AlertForm v-bind:alertMsg="alert.message" v-if="alert.show" />
-    </div>
-    
-    <div class="container ">      
-      <div class="row">
-        <CardTemplate  
-        v-for="(contact, index) in contacts" 
-        v-bind:key='index' 
-        v-bind:user='contact' 
-        v-on:deleteContact='deleteContact'
-        v-bind:index='index'/>
-      </div>      
-    </div>
+      
+      <div class="alert">
+        <AlertForm v-bind:alertMsg="alert.message" v-if="alert.show" />
+      </div>
+      
+      <div class="container ">      
+        <div class="row">
+          <CardTemplate  
+          v-for="(contact, index) in contacts" 
+          v-bind:key='index' 
+          v-bind:user='contact' 
+          v-on:deleteContact='deleteContact'
+          v-bind:index='index'/>
+        </div>      
+      </div>
       
     <FormTemplate v-on:fromForm='addNewContact' />
-  </div>
+</div>
 </template>
 
 <script>
@@ -87,13 +86,20 @@ body{
   flex-wrap: wrap;
 }
 
-:root{
-  --navbar : #7B89A8;
-  --bg : #CBF5F4;
-  --btn-one : #7BA885;
-  --btn-two : #B8CBF5;
-  --r-colour : #BFF5CC;
+.page-title{
+  display: flex;
+  justify-content: center;
 }
 
+:root{
+  --navbar : #093640;
+  --bg : #C1D4D9;
+  --btn-one : #00D196;
+  --btn-two : #A6033F;
+  --r-colour : #F2B705;
+}
 @import '~bootstrap/dist/css/bootstrap.css' 
 </style>
+
+
+
