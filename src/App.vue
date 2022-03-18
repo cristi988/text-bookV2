@@ -1,24 +1,29 @@
 <template>
   <div id="app">
     <NavBar/>
+    <div class="alert">
+      <AlertForm v-bind:alert="alert" v-if="alert.show" />
+    </div>
+    
+    <div class="container ">      
+      <div class="row">
+        <CardTemplate  
+        v-for="(contact, index) in contacts" 
+        v-bind:key='index' 
+        v-bind:user='contact' 
+        v-on:deleteContact='deleteContact'
+        v-bind:index='index'
+        v-on:editContact='onContactEdit'
+        />
+      </div>      
+    </div>
       
-      <div class="alert">
-        <AlertForm v-bind:alertMsg="alert.message" v-if="alert.show" />
-      </div>
-      
-      <div class="container ">      
-        <div class="row">
-          <CardTemplate  
-          v-for="(contact, index) in contacts" 
-          v-bind:key='index' 
-          v-bind:user='contact' 
-          v-on:deleteContact='deleteContact'
-          v-bind:index='index'/>
-        </div>      
-      </div>
-      
-    <FormTemplate v-on:fromForm='addNewContact' />
-</div>
+    <FormTemplate 
+    v-on:fromForm='addNewContact' 
+    v-bind:contactDetails='toEdit.details'
+    v-bind:key=toEdit.i />
+  </div>
+
 </template>
 
 <script>
@@ -41,7 +46,12 @@ export default {
       contacts : [],
       alert : {
         show : false,
-        message : 'Your contact has been created!'
+        msg : '',
+        typeClass : ''
+      },
+      toEdit : {
+        i : null,
+        details : {}
       }
       
     }
@@ -49,12 +59,12 @@ export default {
   methods : {
     addNewContact(formValue){
       this.contacts.push(formValue);
-      this.alert.show = true;
-      this.alert.message = 'message'
 
+      this.alert.show = true;
+      this.alert.msg = 'Your contact has been created!'
+      this.alert.typeClass = 'alert-success'
        setTimeout(()=>{
         this.alert.show = false;
-        this.alert.message = '';
       }, 3000)
     },
 
@@ -62,8 +72,27 @@ export default {
       this.contacts = this.contacts.filter((item, key)=>{
         return key != index;
       })
+
+      this.alert.show = true;
+      this.alert.msg = 'You contact has been deleted!';
+      this.alert.typeClass = 'alert-danger';
+
+      setTimeout(()=>{
+        this.alert.show = false;
+      }, 3000)
     },
-  },  
+
+    onContactEdit(index){
+      this.toEdit.i = index
+      this.toEdit.details = this.contacts[index]
+      console.log(index)
+    }
+  }, 
+  
+  computed :{
+    
+  }
+ 
 
 }
 </script>
