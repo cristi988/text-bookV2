@@ -12,6 +12,8 @@
                         <div class="mb-3">
                             <label for="fName" class="form-label">First Name</label>
                             <input type="test" class="form-control" id="fName" v-model="form.fName">
+                            <label for="">xx</label>
+                            <input type="text" class="form-control" v-model="fName">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Last Name</label>
@@ -45,6 +47,9 @@
 <script>
 export default {
     name : 'FormTemplate',
+    props:{
+        contactDetails : Object,
+    },
 
     data(){
         return {
@@ -54,7 +59,8 @@ export default {
                 phone : "",
                 email : "",
                 address : "",
-            }
+            },
+            fName:''
         }
     },
 
@@ -62,9 +68,16 @@ export default {
         saveDetails(){
             this.$emit('fromForm', this.form);
             this.form = {};
+        },
+    },
+
+    mounted(){
+        if(this.contactDetails){
+            this.form = this.contactDetails;
+            this.fName = this.contactDetails.fName
+            console.log(this.contactDetails)
         }
-
-
+      
     }
 }
 </script>
