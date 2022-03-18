@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style scoped>
+
     .form-inline {
         display: flex;
     }
