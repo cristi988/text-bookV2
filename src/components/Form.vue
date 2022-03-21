@@ -37,41 +37,54 @@
 <script>
 export default {
     name : 'FormTemplate',
-    props:{
-        contactDetails : Object,
-    },
 
     data(){
         return {
-            form : {
-                fName : "",
-                lName : "",
-                phone : "",
-                email : "",
-                address : "",
-            },
+            // form : {
+            //     fName : "",
+            //     lName : "",
+            //     phone : "",
+            //     email : "",
+            //     address : "",
+            // },
            
         }
     },
 
     methods : {
         saveDetails(){
-            this.$emit('fromForm', this.form);
-            this.form = {};
+            this.$store.dispatch('addContact', this.form);
+            this.form = '';
         },
 
         closeForm(){
-            this.$emit('closeForm')
+            this.$store.commit('toggleForm');
         },
     },
 
-    mounted(){
-        if(this.contactDetails){
-            this.form = this.contactDetails;
-            console.log(this.contactDetails)
-        }      
+    computed : {
+        form : {
+            get(){
+                return this.$store.state.contactEdit;
+            },
+
+            set(value){
+                let details = {
+                    fName : "",
+                    lName : "",
+                    phone : "",
+                    email : "",
+                    address : "",
+                }
+                console.log(value, details)
+
+            }
+        }
     },
 
+    beforeMount(){
+        this.form = this.$store.state.contactEdit;
+    },
 
 }
 </script>

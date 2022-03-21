@@ -19,8 +19,7 @@ export default {
 
     methods : {
         showModal(){
-            this.$emit('showModal');
-            console.log("hello")
+            this.$store.commit('toggleForm');
         }
     },
 }

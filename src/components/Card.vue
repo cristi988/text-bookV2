@@ -30,14 +30,14 @@ export default {
 
     methods : {
         deleteContact(){
-            this.$emit('deleteContact', this.user, this.index);
+            this.$store.dispatch('deleteContact', this.user);
         },
 
         editContact(){
-            this.$emit('editContact', this.index);
+            this.$store.commit('editContact', this.user);
+            this.$store.commit('toggleForm');
         }
-    }
-    
+    },    
 }
 </script>
 

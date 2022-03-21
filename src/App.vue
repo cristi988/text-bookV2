@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <NavBar v-on:showModal='modalShow'/>
+    <NavBar/>
 
     <div class="alert">
-      <AlertForm v-bind:alert="alert" v-if="alert.show" />
+      <AlertForm v-bind:alert="alertState" v-if="alertState.visible" />
     </div>
     
     <div class="container">      
@@ -12,19 +12,12 @@
         v-for="(contact, index) in contacts" 
         v-bind:key='index' 
         v-bind:user='contact' 
-        v-on:deleteContact='deleteContact'
-        v-bind:index='index'
-        v-on:editContact='onContactEdit'
+        v-bind:index='index'        
         />
       </div>      
     </div>
 
-    <FormTemplate 
-    v-on:fromForm='addNewContact' 
-    v-bind:contactDetails='toEdit.details'
-    v-bind:key=toEdit.i
-    v-on:closeForm='onCloseForm'
-    v-if="modal"/>
+    <FormTemplate v-if="formVisible"/>
   </div>
 
 </template>
@@ -46,12 +39,7 @@ export default {
   
   data(){
     return {
-      contacts : [],
-      alert : {
-        show : false,
-        msg : '',
-        typeClass : ''
-      },
+      // contacts : [],
       toEdit : {
         i : null,
         details : {}
@@ -61,54 +49,22 @@ export default {
     }
   },
   methods : {
-    addNewContact(formValue){
-      let result = this.contacts.filter((contact)=>{
-        return contact == formValue;
-      })
-      if(result.length < 1){
-       this.contacts.push(formValue);
-       this.toEdit = {};
-      }
-      this.toEdit = {};      
-      this.modal = false;
-      this.alert.show = true;
-      this.alert.msg = 'Your contact has been created!'
-      this.alert.typeClass = 'alert-success'
-       setTimeout(()=>{
-        this.alert.show = false;
-      }, 3000)
-    },
 
-    deleteContact(user, index){
-      this.contacts = this.contacts.filter((item, key)=>{
-        return key != index;
-      })
-
-      this.alert.show = true;
-      this.alert.msg = 'You contact has been deleted!';
-      this.alert.typeClass = 'alert-danger';
-
-      setTimeout(()=>{
-        this.alert.show = false;
-      }, 3000)
-    },
-
-    onContactEdit(index){
-      this.toEdit.i = index;
-      this.toEdit.details = this.contacts[index];
-      this.modal = true;
-    
-    },
-
-    onCloseForm(){
-      this.modal = false;
-    },
-
-    modalShow(){
-      this.modal = true;
-      console.log(this.modal)
-    }
   }, 
+
+  computed : {
+    contacts(){
+      return this.$store.state.contacts;
+    },
+
+    formVisible(){
+      return this.$store.state.formVisible;
+    },
+
+    alertState(){
+      return this.$store.state.alert;
+    }
+  }
   
  
 

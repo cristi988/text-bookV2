@@ -16,11 +16,6 @@ export default {
     methods : {
         
     },
-    mounted(){
-        console.log(this.alert)
-    }
-
-
 }
 </script>
 
