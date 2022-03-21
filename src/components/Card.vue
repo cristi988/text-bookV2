@@ -8,7 +8,7 @@
             <p class="card-text"> {{user.address | toString}} </p>
             <div class="control-buttons">
                 <button class="delete" v-on:click='deleteContact()'>Delete</button>
-                <button class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" v-on:click='editContact()'>Edit</button>
+                <button class="edit" v-on:click='editContact()'>Edit</button>
             </div>
         </div>
     </div>

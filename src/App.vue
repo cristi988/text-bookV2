@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <NavBar v-on:showModal='modalShow'/>
+
     <div class="alert">
       <AlertForm v-bind:alert="alert" v-if="alert.show" />
     </div>
     
-    <div class="container ">      
+    <div class="container">      
       <div class="row">
         <CardTemplate  
         v-for="(contact, index) in contacts" 
@@ -17,11 +18,13 @@
         />
       </div>      
     </div>
-      
+
     <FormTemplate 
     v-on:fromForm='addNewContact' 
     v-bind:contactDetails='toEdit.details'
-    v-bind:key=toEdit.i />
+    v-bind:key=toEdit.i
+    v-on:closeForm='onCloseForm'
+    v-if="modal"/>
   </div>
 
 </template>
@@ -52,14 +55,22 @@ export default {
       toEdit : {
         i : null,
         details : {}
-      }
+      },
+      modal : false,
       
     }
   },
   methods : {
     addNewContact(formValue){
-      this.contacts.push(formValue);
-
+      let result = this.contacts.filter((contact)=>{
+        return contact == formValue;
+      })
+      if(result.length < 1){
+       this.contacts.push(formValue);
+       this.toEdit = {};
+      }
+      this.toEdit = {};      
+      this.modal = false;
       this.alert.show = true;
       this.alert.msg = 'Your contact has been created!'
       this.alert.typeClass = 'alert-success'
@@ -83,15 +94,22 @@ export default {
     },
 
     onContactEdit(index){
-      this.toEdit.i = index
-      this.toEdit.details = this.contacts[index]
-      console.log(index)
+      this.toEdit.i = index;
+      this.toEdit.details = this.contacts[index];
+      this.modal = true;
+    
+    },
+
+    onCloseForm(){
+      this.modal = false;
+    },
+
+    modalShow(){
+      this.modal = true;
+      console.log(this.modal)
     }
   }, 
   
-  computed :{
-    
-  }
  
 
 }
@@ -104,6 +122,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
 }
 
 body{
@@ -118,6 +137,18 @@ body{
 .page-title{
   display: flex;
   justify-content: center;
+}
+
+.md-bg {
+  background-color: rgba(0,0,0,0.9);
+  /* display: flex; */
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  padding-top:30px;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
 }
 
 :root{

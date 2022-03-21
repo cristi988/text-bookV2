@@ -1,5 +1,5 @@
 <template>
-    <div class="alerts">
+    <div class="alerts w-100 mx-auto ">
         <div class="alert" v-bind:class=alert.typeClass  role="alert">
                 {{alert.msg}}
         </div>
@@ -27,5 +27,8 @@ export default {
 
 
 <style scoped>
+    .alerts{
+        position: fixed;
 
+    }
 </style>
