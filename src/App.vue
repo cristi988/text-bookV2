@@ -58,7 +58,7 @@ export default {
     },
 
     formVisible(){
-      return this.$store.state.formVisible;
+      return this.$store.state.form.visible;
     },
 
     alertState(){
@@ -114,7 +114,8 @@ body{
   --btn-two : #A6033F;
   --r-colour : #F2B705;
 }
-@import '~bootstrap/dist/css/bootstrap.css' 
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
 </style>
 
 

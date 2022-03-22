@@ -3,7 +3,7 @@
         <div class="container">
             
             <a class="navbar-brand text-light"> Contact Form</a>
-            <button class="btn" v-on:click="showModal()">Add Form</button>
+            <button class="btn" v-on:click="showModal()">Add Contact</button>
             <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn  my-2 my-sm-0 " type="button">Search</button>
@@ -20,6 +20,7 @@ export default {
     methods : {
         showModal(){
             this.$store.commit('toggleForm');
+            this.$store.state.form.edit = false;
         }
     },
 }

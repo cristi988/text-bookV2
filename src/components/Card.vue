@@ -1,14 +1,15 @@
 <template>
-    <div class="card mx-3 mt-5" style="width: 18rem;">
+    <div class="card mx-3 mt-5" style="width: 25rem;">
         <div class="card-body">
-            <h5 class="card-title">{{user.fName}}</h5>
-            <h5 class="card-title">{{user.lName}}</h5>
-            <p class="card-text"> {{user.email}} </p>
-            <p class="card-text"> {{user.phone}} </p>
-            <p class="card-text"> {{user.address | toString}} </p>
-            <div class="control-buttons">
-                <button class="delete" v-on:click='deleteContact()'>Delete</button>
-                <button class="edit" v-on:click='editContact()'>Edit</button>
+            <h5 class="card-title text-start">{{user.fName}} {{user.lName}}</h5>
+            <hr>
+            <p class="card-text text-start"><i class="bi bi-envelope"></i> {{user.email}} </p>
+            <p class="card-text text-start"><i class="bi bi-telephone"></i> {{user.phone}} </p>
+            <p class="card-text text-start"><i class="bi bi-geo-alt"></i> {{user.address | toString}} </p>
+
+            <div class="mt-3 mb-1 pt-2 w-100 mx-auto d-flex justify-content-between">
+                <button class="btn btn-danger " v-on:click='deleteContact()'>Delete <i class="bi bi-trash"></i></button>
+                <button class="btn btn-primary " v-on:click='editContact()'>Edit <i class="bi bi-pencil-square"></i></button>
             </div>
         </div>
     </div>
@@ -43,25 +44,4 @@ export default {
 
 
 <style scoped>
-    .delete{
-        background-color: var(--btn-two)
-    }
-
-    .edit{
-        background-color: var(--btn-one)
-    }
-
-    .delete, .edit {
-        border-radius: 5px;
-        border: none;
-        color: white;
-        font-weight: bold;
-    }
-
-    .control-buttons{
-       display: flex;
-       justify-content: space-around;
-       font-size: 20px;
-    }
-
 </style>

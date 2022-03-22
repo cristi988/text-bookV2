@@ -2,22 +2,31 @@ const storeBlueprint =
 {
     state : {
         contacts : [],
-        formVisible : false,
+        form : {
+            data : '',
+            visible : false,
+            edit : false,
+        },
         alert : {
             msg : '',
             visible : false,
             typeClass : '',
         },
-        contactEdit : {},
+    },
+    getters :{
+
+        getContactToBeEdited(state){
+            return {...state.form.data}
+        }
     },
 
     mutations : {
         addContact(state, contact){
-            state.contacts = [...state.contacts, contact];
+            state.contacts = [...state.contacts, {...contact}];
         },
 
         toggleForm(state){
-            state.formVisible = !state.formVisible;
+            state.form.visible = !state.form.visible;
         },
 
         deleteContact(state, contact){
@@ -35,8 +44,19 @@ const storeBlueprint =
         },
 
         editContact(state, contact){
-            state.contactEdit = contact;
-            console.log(state.contactEdit);
+            state.form.edit = true;
+            state.form.data = contact;
+            // let contacts = state.contacts.filter((c)=>{
+            //     return c != contact;
+            // })
+            // state.contacts = [...contacts]
+        },
+
+        updateContact(state, contact){
+            let contacts = state.contacts.filter((c)=>{
+               return c != state.form.data
+            })        
+            state.contacts = [...contacts, {...contact}];
         }
     },
 
@@ -55,6 +75,12 @@ const storeBlueprint =
             visible : true,
             typeClass : 'alert-danger'})
         },
+
+        updateContact(context, payload){
+            context.commit('updateContact', payload);
+            context.commit('toggleForm');
+            context.commit('showAlert', {msg : 'Your contact has been updated!', visible : true, typeClass : 'alert-success'});
+        }
     }
 }
 
