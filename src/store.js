@@ -17,6 +17,10 @@ const storeBlueprint =
 
         getContactToBeEdited(state){
             return {...state.form.data}
+        },
+
+        getForm(state){
+            return {...state.form}
         }
     },
 
@@ -26,7 +30,12 @@ const storeBlueprint =
         },
 
         toggleForm(state){
-            state.form.visible = !state.form.visible;
+            state.form.visible = !state.form.visible;          
+        },
+
+        destroyForm(state){
+            state.form.data = {};
+            state.form.edit = false;
         },
 
         deleteContact(state, contact){

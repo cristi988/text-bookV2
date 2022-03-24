@@ -65,29 +65,25 @@ export default {
             }else{
                 this.$store.dispatch('addContact', this.form.data);     
             }
-            this.resetForm();
           
         },
 
         closeForm(){
             this.$store.commit('toggleForm');
-            this.resetForm();
         },
-
-        resetForm(){
-             Object.keys(this.form.data).forEach((key)=>{
-                this.form.data[key] = "";
-            });
-        }
     },
 
     computed : {
-
+        
     },
 
     beforeMount(){
-        this.form = {...this.$store.state.form};
+        this.form = this.$store.getters.getForm;
         this.form.data = this.$store.getters.getContactToBeEdited;
+    },
+
+    destroyed(){
+        this.$store.commit('destroyForm');
     },
 
 }
