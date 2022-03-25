@@ -12,6 +12,7 @@ const storeBlueprint =
             visible : false,
             typeClass : '',
         },
+        searchTerm : '',
     },
     getters :{
 
@@ -21,6 +22,14 @@ const storeBlueprint =
 
         getForm(state){
             return {...state.form}
+        },
+        
+        getContacts(state) {    
+            return state.contacts.filter((contact)=>{
+                if(contact.fName.toLowerCase().includes(state.searchTerm) || (contact.lName.includes(state.searchTerm))){
+                    return contact
+                } 
+            })
         }
     },
 
@@ -55,10 +64,6 @@ const storeBlueprint =
         editContact(state, contact){
             state.form.edit = true;
             state.form.data = contact;
-            // let contacts = state.contacts.filter((c)=>{
-            //     return c != contact;
-            // })
-            // state.contacts = [...contacts]
         },
 
         updateContact(state, contact){
@@ -66,6 +71,10 @@ const storeBlueprint =
                return c != state.form.data
             })        
             state.contacts = [...contacts, {...contact}];
+        },
+
+        setSearchTerm(state, term){
+            state.searchTerm = term;
         }
     },
 

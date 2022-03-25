@@ -5,7 +5,8 @@
             <a class="navbar-brand text-light"> Contact Form</a>
             <button class="btn" v-on:click="showModal()">Add Contact</button>
             <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+             v-on:keyup="search($event)">
             <button class="btn  my-2 my-sm-0 " type="button">Search</button>
             </form>
             
@@ -21,6 +22,11 @@ export default {
         showModal(){
             this.$store.commit('toggleForm');
             this.$store.state.form.edit = false;
+        },
+
+        search(event){
+            //trimitem valoare catre store cu search term
+            this.$store.commit('setSearchTerm', event.target.value);
         }
     },
 }

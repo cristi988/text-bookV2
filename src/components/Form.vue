@@ -90,9 +90,6 @@ export default {
 </script>
 
 
-
-
-
 <style >
     
 

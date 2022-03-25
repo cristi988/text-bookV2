@@ -39,13 +39,7 @@ export default {
   
   data(){
     return {
-      // contacts : [],
-      toEdit : {
-        i : null,
-        details : {}
-      },
-      modal : false,
-      
+     
     }
   },
   methods : {
@@ -54,7 +48,9 @@ export default {
 
   computed : {
     contacts(){
-      return this.$store.state.contacts;
+
+      //return a store getter
+     return this.$store.getters.getContacts;
     },
 
     formVisible(){
@@ -63,7 +59,8 @@ export default {
 
     alertState(){
       return this.$store.state.alert;
-    }
+    },
+    
   }
   
  
