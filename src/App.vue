@@ -48,7 +48,6 @@ export default {
 
   computed : {
     contacts(){
-
       //return a store getter
      return this.$store.getters.getContacts;
     },
@@ -94,7 +93,6 @@ body{
 
 .md-bg {
   background-color: rgba(0,0,0,0.9);
-  /* display: flex; */
   justify-content: center;
   position: fixed;
   top: 0;

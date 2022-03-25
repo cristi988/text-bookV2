@@ -19,11 +19,21 @@ export default {
     name : 'NavBar',
 
     methods : {
+
+        /**
+         * This function toggles the form and makes the edit false
+         * 
+         */
         showModal(){
             this.$store.commit('toggleForm');
             this.$store.state.form.edit = false;
         },
 
+
+        /**
+         * This function search for an event in the search bar
+         * 
+         */
         search(event){
             //trimitem valoare catre store cu search term
             this.$store.commit('setSearchTerm', event.target.value);
