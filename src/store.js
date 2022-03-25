@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const storeBlueprint = 
 {
     state : {
@@ -13,6 +15,7 @@ const storeBlueprint =
             typeClass : '',
         },
         searchTerm : '',
+
     },
     getters :{
         /**
@@ -65,7 +68,16 @@ const storeBlueprint =
          * @param {*} contact 
          */
         addContact(state, contact){
-            state.contacts = [...state.contacts, {...contact}];
+           // state.contacts = [...state.contacts, {...contact}];
+           axios.post('http://localhost:3000/contacts', contact).then(({data, status})=>{
+               if(status == 201) {
+                    state.contacts = [...state.contacts, data];
+               }
+           })
+        },
+
+        insertJsData(state, contacts){
+            state.contacts  = contacts;
         },
 
         /**

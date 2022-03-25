@@ -27,7 +27,7 @@ import NavBar from './components/NavBar.vue'
 import CardTemplate from './components/Card.vue'
 import FormTemplate from './components/Form.vue'
 import AlertForm from './components/Alert.vue'
-// import axios from 'axios'
+import axios from 'axios'
 export default {
   name: 'App',
   components: {
@@ -39,7 +39,7 @@ export default {
   
   data(){
     return {
-     
+     basePath : `http://localhost:3000`,
     }
   },
   methods : {
@@ -60,10 +60,12 @@ export default {
       return this.$store.state.alert;
     },
     
+  },
+  created(){
+    axios.get(`${this.basePath}/contacts`).then(({data})=>{
+      return this.$store.commit('insertJsData', data)
+    })
   }
-  
- 
-
 }
 </script>
 

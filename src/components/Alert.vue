@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
     .alerts{
-        position: fixed;
+        position: absolute;
 
     }
 </style>

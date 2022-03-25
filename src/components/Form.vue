@@ -4,23 +4,23 @@
             <h2 v-if="form.edit">Edit Contact</h2>
             <h2 v-else>Add Contact</h2>
             <div class="  mb-3 w-100 mx-auto">
-                <label for="fName" class="form-label w-100 text-start text-capitalize text-lg" >First Name</label>
-                <input type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName" required>
+                <label  class="form-label w-100 text-start text-capitalize text-lg" >First Name</label>
+                <input type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName">
             </div>
             <div class="mb-3 w-100 mx-auto">
-                <label for="exampleInputEmail1" class="form-label w-100 text-start">Last Name</label>
+                <label  class="form-label w-100 text-start">Last Name</label>
                 <input type="text" class=" textCap form-control" maxlength="20" v-model="form.data.lName" >
             </div>
             <div class="mb-3 w-100 mx-auto">
-                <label for="exampleInputEmail1" class="form-label w-100 text-start">Phone Number</label>
+                <label  class="form-label w-100 text-start">Phone Number</label>
                 <input type="tel" class="form-control" maxlength="15" v-model="form.data.phone">
             </div>
             <div class="mb-3 w-100 mx-auto">
-                <label for="exampleInputPassword1" class="form-label w-100 text-start">Email</label>
+                <label  class="form-label w-100 text-start">Email</label>
                 <input type="email" class="form-control" maxlength="50" v-model="form.data.email">
             </div>
             <div class="mb-3 w-100 mx-auto">
-                <label for="exampleInputEmail1" class="form-label w-100 text-start">Address</label>
+                <label  class="form-label w-100 text-start">Address</label>
                 <input type="text" class="form-control" v-model="form.data.address">
             </div>
             <div class="mb-3 w-100 mx-auto d-flex justify-content-between">
