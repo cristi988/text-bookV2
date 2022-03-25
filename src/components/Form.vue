@@ -3,21 +3,21 @@
         <form class="form w-50 mx-auto border bg-light border-dark p-3">
             <h2 v-if="form.edit">Edit Contact</h2>
             <h2 v-else>Add Contact</h2>
-            <div class="mb-3 w-75 mx-auto">
-                <label for="fName" class="form-label w-100 text-start">First Name</label>
-                <input type="test" class="form-control" id="fName" v-model="form.data.fName">
+            <div class="  mb-3 w-75 mx-auto">
+                <label for="fName" class="form-label w-100 text-start text-capitalize" >First Name</label>
+                <input type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName" required>
             </div>
             <div class="mb-3 w-75 mx-auto">
                 <label for="exampleInputEmail1" class="form-label w-100 text-start">Last Name</label>
-                <input type="text" class="form-control" v-model="form.data.lName">
+                <input type="text" class=" textCap form-control" maxlength="20" v-model="form.data.lName" >
             </div>
             <div class="mb-3 w-75 mx-auto">
                 <label for="exampleInputEmail1" class="form-label w-100 text-start">Phone Number</label>
-                <input type="text" class="form-control" v-model="form.data.phone">
+                <input type="tel" class="form-control" maxlength="15" v-model="form.data.phone">
             </div>
             <div class="mb-3 w-75 mx-auto">
                 <label for="exampleInputPassword1" class="form-label w-100 text-start">Email</label>
-                <input type="email" class="form-control" v-model="form.data.email">
+                <input type="email" class="form-control" maxlength="20" v-model="form.data.email">
             </div>
             <div class="mb-3 w-75 mx-auto">
                 <label for="exampleInputEmail1" class="form-label w-100 text-start">Address</label>
@@ -74,7 +74,7 @@ export default {
     },
 
     computed : {
-        
+
     },
 
     beforeMount(){
@@ -91,6 +91,8 @@ export default {
 
 
 <style >
-    
+    .textCap {
+        text-transform: capitalize;
+    }
 
 </style>

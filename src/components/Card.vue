@@ -1,9 +1,9 @@
 <template>
     <div class="card mx-3 mt-5" style="width: 25rem;">
         <div class="card-body">
-            <h5 class="card-title text-start">{{user.fName}} {{user.lName}}</h5>
+            <h5 class=" textCap card-title text-start">{{user.fName}} {{user.lName}}</h5>
             <hr>
-            <p class="card-text text-start"><i class="bi bi-envelope"></i> {{user.email}} </p>
+            <p class="card-text text-start"><i class=" bi bi-envelope"></i> {{user.email}} </p>
             <p class="card-text text-start"><i class="bi bi-telephone"></i> {{user.phone}} </p>
             <p class="card-text text-start"><i class="bi bi-geo-alt"></i> {{user.address | toString}} </p>
 
@@ -44,4 +44,7 @@ export default {
 
 
 <style scoped>
+    .textCap {
+        text-transform: capitalize;
+    }
 </style>

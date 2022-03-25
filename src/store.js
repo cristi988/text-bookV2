@@ -26,7 +26,11 @@ const storeBlueprint =
         
         getContacts(state) {    
             return state.contacts.filter((contact)=>{
-                if(contact.fName.toLowerCase().includes(state.searchTerm) || (contact.lName.includes(state.searchTerm))){
+                if((contact.fName.toLowerCase().includes(state.searchTerm)) ||
+                   (contact.lName.toLowerCase().includes(state.searchTerm)) ||
+                   (contact.phone.includes(state.searchTerm)) ||
+                   (contact.address.toLowerCase().includes(state.searchTerm)) ||
+                   (contact.email.toLowerCase().includes(state.searchTerm))){
                     return contact
                 } 
             })
