@@ -1,78 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "fName": "Elsa ",
-      "lName": "Gilliam",
-      "email": "elsagilliam@zolarity.com",
-      "phone": "+1 (910) 535-2197",
-      "address": "602 Brevoort Place, Washington, Michigan, 3687"
-    },
-    {
-      "id": 2,
-      "fName": "Susanna ",
-      "lName": "Winters",
-      "email": "susannawinters@zolarity.com",
-      "phone": "+1 (852) 525-2669",
-      "address": "532 Colin Place, Bowmansville, Marshall Islands, 2275"
-    },
-    {
-      "id": 3,
-      "fName": "Corine ",
-      "lName": "Mosley",
-      "email": "corinemosley@zolarity.com",
-      "phone": "+1 (957) 595-3180",
-      "address": "768 Bouck Court, Dotsero, Northern Mariana Islands, 6923"
-    },
-    {
-      "id": 4,
-      "fName": "Flynn ",
-      "lName": "Powell",
-      "email": "flynnpowell@zolarity.com",
-      "phone": "+1 (845) 416-2669",
-      "address": "651 Whitney Avenue, Vandiver, Tennessee, 8707"
-    },
-    {
-      "id": 5,
-      "fName": "Hester ",
-      "lName": "Glover",
-      "email": "hesterglover@zolarity.com",
-      "phone": "+1 (883) 564-2226",
-      "address": "558 Lloyd Street, Westphalia, Delaware, 392"
-    },
-    {
-      "id": 6,
-      "fName": "White ",
-      "lName": "Valentine",
-      "email": "whitevalentine@zolarity.com",
-      "phone": "+1 (922) 530-2403",
-      "address": "655 Nelson Street, Moscow, Illinois, 8010"
-    },
-    {
-      "id": 7,
-      "fName": "Alison ",
-      "lName": "Vance",
-      "email": "alisonvance@zolarity.com",
-      "phone": "+1 (898) 424-2809",
-      "address": "241 Humboldt Street, Century, North Dakota, 1664"
-    },
-    {
-      "id": 8,
-      "fName": "Farmer ",
-      "lName": "Morgan",
-      "email": "farmermorgan@zolarity.com",
-      "phone": "+1 (878) 516-2593",
-      "address": "818 Chester Court, Brutus, Arkansas, 4987"
-    },
-    {
-      "id": 9,
-      "fName": "Vaughn ",
-      "lName": "Mueller",
-      "email": "vaughnmueller@zolarity.com",
-      "phone": "+1 (976) 591-3350",
-      "address": "794 Howard Place, Brazos, Mississippi, 7351"
-    },
-    {
       "id": 10,
       "fName": "Colon ",
       "lName": "Jacobson",
@@ -233,7 +161,7 @@
       "id": 29
     },
     {
-      "fName": "Cristian 4",
+      "fName": "Cristian",
       "lName": "Cojita",
       "phone": "+447873962862",
       "email": "cristi.gabriel988@gmail.com",
@@ -241,8 +169,8 @@
       "id": 30
     },
     {
-      "fName": "Cristian 5",
-      "lName": "Cojita",
+      "fName": "Bob",
+      "lName": "john",
       "phone": "+447873962862",
       "email": "cristi.gabriel988@gmail.com",
       "address": "70 Gawdy Road",

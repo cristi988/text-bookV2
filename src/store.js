@@ -1,4 +1,4 @@
-import axios from "axios"
+import { api } from "./services/api"
 
 const storeBlueprint = 
 {
@@ -60,6 +60,12 @@ const storeBlueprint =
 
     mutations : {
 
+        retrieveContacts(state) {
+            api.get('contacts').then(({data})=>{
+                state.contacts = data
+            })
+        },
+
         /**
          * This function add the contacts from the form into the cards
          * Clones the contacts in the form
@@ -69,7 +75,7 @@ const storeBlueprint =
          */
         addContact(state, contact){
            // state.contacts = [...state.contacts, {...contact}];
-           axios.post('http://localhost:3000/contacts', contact).then(({data, status})=>{
+           api.add('contacts', contact).then(({data, status})=>{
                if(status == 201) {
                     state.contacts = [...state.contacts, data];
                }
@@ -106,10 +112,14 @@ const storeBlueprint =
          * @param {*} contact 
          */
         deleteContact(state, contact){
-            let contacts = state.contacts.filter((item) =>{
-                return item != contact;
+            api.delete('contacts', contact.id).then(({status})=>{
+                if(status == 200){
+                    let contacts = state.contacts.filter((item) =>{
+                        return item.id != contact.id;
+                    })
+                    state.contacts = [...contacts]; 
+                }        
             })
-            state.contacts = [...contacts];            
         },
 
         /**
@@ -132,6 +142,9 @@ const storeBlueprint =
          * @param {*} contact 
          */
         editContact(state, contact){
+            api.update('contacts', contact.id, contact).then(response=>{
+                console.log(response)
+            })
             state.form.edit = true;
             state.form.data = contact;
         },
@@ -157,7 +170,8 @@ const storeBlueprint =
          */
         setSearchTerm(state, term){
             state.searchTerm = term;
-        }
+        },
+
     },
 
     actions : {
