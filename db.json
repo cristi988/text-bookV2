@@ -1,22 +1,6 @@
 {
   "contacts": [
     {
-      "id": 10,
-      "fName": "Colon ",
-      "lName": "Jacobson",
-      "email": "colonjacobson@zolarity.com",
-      "phone": "+1 (980) 407-3673",
-      "address": "766 Lamont Court, Wright, American Samoa, 4731"
-    },
-    {
-      "id": 11,
-      "fName": "Kitty ",
-      "lName": "Horne",
-      "email": "kittyhorne@zolarity.com",
-      "phone": "+1 (930) 547-2228",
-      "address": "720 Dodworth Street, Winesburg, New York, 9570"
-    },
-    {
       "id": 12,
       "fName": "Nelson ",
       "lName": "Rocha",
@@ -31,22 +15,6 @@
       "email": "sharpdaugherty@zolarity.com",
       "phone": "+1 (942) 439-3859",
       "address": "263 Menahan Street, Norwood, Kentucky, 4054"
-    },
-    {
-      "id": 14,
-      "fName": "Delores ",
-      "lName": "Patton",
-      "email": "delorespatton@zolarity.com",
-      "phone": "+1 (811) 429-2881",
-      "address": "707 Holt Court, Condon, Kansas, 7008"
-    },
-    {
-      "id": 15,
-      "fName": "Brittney ",
-      "lName": "Savage",
-      "email": "brittneysavage@zolarity.com",
-      "phone": "+1 (861) 570-3937",
-      "address": "141 Richardson Street, Shawmut, Guam, 3053"
     },
     {
       "id": 16,
@@ -145,36 +113,12 @@
       "id": 27
     },
     {
-      "fName": "Bob",
-      "lName": "Cojita",
-      "phone": "+447873962862",
-      "email": "cristi.gabriel988@gmail.com",
-      "address": "70 Gawdy Road",
-      "id": 28
-    },
-    {
-      "fName": "Cristian 3",
-      "lName": "Cojita",
-      "phone": "+447873962862",
-      "email": "cristi.gabriel988@gmail.com",
-      "address": "70 Gawdy Road",
-      "id": 29
-    },
-    {
       "fName": "Cristian",
       "lName": "Cojita",
       "phone": "+447873962862",
       "email": "cristi.gabriel988@gmail.com",
       "address": "70 Gawdy Road",
-      "id": 30
-    },
-    {
-      "fName": "Bob",
-      "lName": "john",
-      "phone": "+447873962862",
-      "email": "cristi.gabriel988@gmail.com",
-      "address": "70 Gawdy Road",
-      "id": 31
+      "id": 28
     }
   ]
 }
