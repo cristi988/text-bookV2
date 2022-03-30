@@ -21,6 +21,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
     add(endpoint, payload){
       return axios.post(`${this.basePath}/${endpoint}`, payload)
     }
+    
 
 }
 

@@ -5,23 +5,38 @@
             <h2 v-else>Add Contact</h2>
             <div class="  mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start text-capitalize text-lg" >First Name</label>
-                <input type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName">
-            </div>
+
+                <input required type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName">
+
+                <label class="text-danger d-flex justify-content-start" v-if="errors.fNameError" > {{errors.fNameError}} </label>
+            </div> 
             <div class="mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start">Last Name</label>
+
                 <input type="text" class=" textCap form-control" maxlength="20" v-model="form.data.lName" >
+
+                <label class="text-danger d-flex justify-content-start">{{errors.lNameError}}</label>
             </div>
             <div class="mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start">Phone Number</label>
+
                 <input type="tel" class="form-control" maxlength="15" v-model="form.data.phone">
+
+                <label class="text-danger d-flex justify-content-start"> {{errors.phoneError}} </label>
             </div>
             <div class="mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start">Email</label>
+
                 <input type="email" class="form-control" maxlength="50" v-model="form.data.email">
+
+                <label class="text-danger d-flex justify-content-start"> {{errors.emailError}} </label>
             </div>
             <div class="mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start">Address</label>
+
                 <input type="text" class="form-control" v-model="form.data.address">
+
+                <label class="text-danger d-flex justify-content-start">{{errors.addressError}} </label>
             </div>
             <div class="mb-3 w-100 mx-auto d-flex justify-content-between">
                 <button type="button" class="btn btn-dark" v-on:click="closeForm()">Close <i class="bi bi-x-circle"></i></button>
@@ -37,11 +52,11 @@
 
 
 <script>
+import Validator from '../services/formValidation.js'
 export default {
     name : 'FormTemplate',
 
     data(){
-
         return {
             form : {
                 data : {
@@ -54,6 +69,13 @@ export default {
                 visible : false,
                 edit : false,             
             },
+            errors : {
+                // fNameError : '',
+                // lNameError : '',
+                // phoneError : '',
+                // emailError : '',
+                // addressError : '',
+            } 
         }
     },
 
@@ -63,11 +85,17 @@ export default {
          * 
          */
         saveDetails(){
+           const validator  = new Validator(this.form.data);
+            validator.validate()
 
+           if(!validator.isValid) {
+               this.errors = validator.getErrors();
+               return 
+           }
             if(this.form.edit){
                 this.$store.dispatch('updateContact', this.form.data);                
             }else{
-                this.$store.dispatch('addContact', this.form.data);     
+                this.$store.dispatch('addContact',this.form.data);     
             }
           
         },

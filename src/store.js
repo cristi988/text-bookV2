@@ -60,6 +60,13 @@ const storeBlueprint =
 
     mutations : {
 
+        
+
+        /**
+         * This function gets the data from json api
+         * 
+         * @param {*} state 
+         */
         retrieveContacts(state) {
             api.get('contacts').then(({data})=>{
                 state.contacts = data
@@ -74,7 +81,6 @@ const storeBlueprint =
          * @param {*} contact 
          */
         addContact(state, contact){
-           // state.contacts = [...state.contacts, {...contact}];
            api.add('contacts', contact).then(({data, status})=>{
                if(status == 201) {
                     state.contacts = [...state.contacts, data];
