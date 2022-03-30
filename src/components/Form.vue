@@ -3,7 +3,7 @@
         <form class="form mx-auto border bg-light border-dark p-3 rounded mt-5">
             <h2 v-if="form.edit">Edit Contact</h2>
             <h2 v-else>Add Contact</h2>
-            <div class="  mb-3 w-100 mx-auto">
+            <div class=" mb-3 w-100 mx-auto">
                 <label  class="form-label w-100 text-start text-capitalize text-lg" >First Name</label>
 
                 <input required type="text" class="textCap form-control" id="fName" maxlength="20" v-model="form.data.fName">
@@ -135,10 +135,16 @@ export default {
 
 
 <style >
+    @media (max-width: 991.98px) { 
+        .form { 
+            width : 75% !important;
+        }
+    }
+
     .textCap {
         text-transform: capitalize;
     }
     .form {
         width: 30%;
-    }
+    }    
 </style>

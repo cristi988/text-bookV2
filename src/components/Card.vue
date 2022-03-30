@@ -1,5 +1,5 @@
 <template>
-    <div class="card mx-3 mt-5 shadow p-3 mb-5 bg-white rounded" style="width: 25rem;">
+    <div class="card mx-auto mt-5 shadow p-3 mb-5 bg-white rounded" style="width: 25rem;">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
                 <h5 class="textCap card-title text-start ">{{user.fName}} {{user.lName}}</h5>

@@ -1,14 +1,22 @@
 <template>
     <nav class="navbar">
-        <div class="container">
-            
-            <a class="navbar-brand text-light"> Contact Form</a>
-            <button class="btn" v-on:click="showModal()">Add Contact</button>
-            <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-             v-on:keyup="search($event)">
-            <button class="btn  my-2 my-sm-0 " type="button">Search</button>
-            </form>
+        <div class="container ">
+
+            <div class="col-12 col-xl-4">
+                <a class="navbar-brand text-light"> Contact Form</a>
+            </div>
+
+            <div class="col-12 col-xl-4 mt-2">
+                <button class="btn btn-lg" v-on:click="showModal()">Add Contact</button>
+            </div>
+
+            <div class="col-12 col-xl-4 mt-2">
+                <form class="form-inline">
+                <input class=" form-control mr-sm-2 form-control-lg" type="search" placeholder="Search" aria-label="Search"
+                v-on:keyup="search($event)">
+                </form>
+            </div>          
+        
             
          </div>
     </nav>
